@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -26,7 +27,8 @@ main{
 h1{
     margin-top: 20px;
     font-family: 'Rubik Vinyl', cursive, sans-serif;
-    color:rgb(215, 29, 150)
+    color: white;
+    filter: drop-shadow(.5rem .5rem .3rem rgba(248, 87, 166, .6));
 }
 .score-board{
     width: 550px;
@@ -48,6 +50,7 @@ h1{
     height: 2rem;
     border-radius: 20px;
     text-indent: 8px;
+    text-transform: capitalize;
 }
 #show-msg{
     letter-spacing: 2px;
@@ -69,12 +72,52 @@ h1{
     color: white;
     font-weight: 600;
     font-size: 1.2rem;
-
+    border: none;
+    border-radius: 10px;
+    box-shadow: .3rem .3rem .3rem rgba(248, 87, 166, 0.5);
+    transition: transform .4s;
+}
+#start-btn:hover{
+    transform: scale(1.1);
+    transition: transform .4s;
 }
 
 
+#banner{
+    height: 100px;
+    width: 300px;
+    border: 1px solid black;
+    border-left-style:dotted ;
+    border-right-style:dotted ;
+    position: relative;
+    border-right: transparent;
+    border-left: transparent;
+    display: none;
+}
+#banner::before{
+    content: '';
+    height: 100px;
+    width:100px;
+    border: 1px solid black;
+    position: absolute;
+    left: -65px;
+    border-radius: 100%;
+
+}
+#banner::after{
+    content: '';
+    height: 100px;
+    width:100px;
+    border: 1px solid black;
+    position: absolute;
+    right: -65px;
+    border-radius: 100%
+
+}
+
 .game-board{
-   margin-top: 30px ;
+   margin-top: 20px ;
+   margin-bottom: 20px;
    width: 100%;
    height: fit-content; 
    /* border: 5px solid aquamarine; */
@@ -83,24 +126,7 @@ h1{
    position: relative;
    
 }
-/* Conencting lines*/
-.connect{
-    content: '';
-    height: 500px;
-    width: 6px;
-    background-color: blue;
-    /* position: absolute; */
-    bottom: 1.2rem;
-    left:0;
-    border-radius: 10px;
-    transform: rotate();
-    display: none;
-}
-.connect #line-1{
-    position:absolute;
-    left:16%;
-}
-/*End of Conencting lines*/
+
 .row{
     height: calc(100%/3);
     width: 100%;
@@ -113,19 +139,20 @@ h1{
     border-radius: 10%;
     width: calc(100%/3);
     height: 180px;
-    font-family: 'Rubik Vinyl', cursive, sans-serif;
-    /* font-family: 'Roboto',sans-serif; */
+    font-family: 'Acme', sans-serif;
     font-size: 2rem;
     text-align: center;
+    text-shadow: .5rem .5rem 6px grey ;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: .5rem .5rem .5rem rgba(248, 87, 166, 0.6);
 }
 
 #reset{
-    width: 550px;
+    width: 200px;
+    margin: 5px;
     height: 2rem;
-    margin-top: 5px;
     font-size: 1.5rem;
     background-color:#f857a6;
     font-family:inherit;
@@ -133,7 +160,36 @@ h1{
     letter-spacing: .2rem;
     font-weight: 600;
     color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: .3rem .3rem .3rem rgba(248, 87, 166, 0.5);
     margin-bottom: 20px;
+    transition: transform .4s;
+}
+#reset:hover{
+    transform: scale(1.1);
+    transition: transform .4s;
+}
+#play-again{
+    width: 200px;
+    height: 2rem;
+    margin: 5px;
+    font-size: 1.5rem;
+    background-color:#f857a6;
+    font-family:inherit;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: .3rem .3rem .3rem rgba(248, 87, 166, 0.5);
+    margin-bottom: 20px;
+    transition: transform .4s;
+}
+#play-again:hover{
+    transform: scale(1.1);
+    transition: transform .4s;
 }
 
 

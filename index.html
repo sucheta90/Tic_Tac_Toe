@@ -24,35 +24,11 @@
           </label>
           <button id="start-btn">Start Game</button>
         </form>
-        <div id="show-msg"></div>
+        <div id="show-msg">
+          <div id="banner"></div>
+        </div>
       </div>
-      <!--End of Score Board-->
-      <!--Players Sign Selection-->
 
-      <!-- <div class="players">
-        <label for="player-1-input">
-          Player 1
-          <select id="player-1-input" name="'player-1">
-            <option>select</option>
-            <option>X</option>
-            <option>O</option>
-          </select>
-        </label>
-        <label for="player-2-input">
-          Player 2
-          <select id="player-2-input" name="'player-1">
-            <option>select</option>
-            <option>X</option>
-            <option>O</option>
-          </select>
-        </label>
-      </div> -->
-      <!--End on Sign Selection-->
-      <!--Game Board-->
-      <!-- <div>
-        <button id="toss">TOSS to PLAY</button>
-        <span class="toss-winner"></span>
-      </div> -->
       <div class="game-board" id="game-board">
         <div id="r1" class="row">
           <span id="r1c1" class="square"></span>
@@ -78,7 +54,9 @@
         <div id="line-7" class="connect"></div>
         <div id="line-8" class="connect"></div>
       </div>
-      <button id="reset">Play Again</button>
+      <button id="play-again">Play Again</button>
+      <button id="reset">Reset</button>
+
       <!--End of Game Board-->
     </main>
 

@@ -1,6 +1,7 @@
 const gameBoard = document.querySelector('.game-board');
 const allSquares = document.querySelectorAll('.square');
-const playAgain = document.querySelector('#reset');
+const resetBtn= document.querySelector('#reset');
+const playAgain = document.getElementById('play-again')
 const allPlayers = document.querySelector('.players');
 const body = document.getElementsByTagName('body');
 const startBtn = document.getElementById('start-btn');
@@ -25,19 +26,46 @@ const combos = [
     ['r1c2','r2c2','r3c2'],
     ['r1c3','r2c3', 'r3c3']
 ]
-let player1= 'Player 1';
-let player2; 'Player 2';
+let player1;
+let player2;
+let winner;
 
+/* By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById('game-board').style.pointerEvents = 'none';
+document.getElementById('play-again').style.pointerEvents = 'none';
+document.getElementById('play-again').style.opacity = '.6';
 
-startBtn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    if(!p1.innerText && !p2.innerText){
-        player1 = p1.value;
-        player2 = p2.value;
-        showMsg.innerText = `${player1}'s turn`
-        document.getElementById('game-board').style.pointerEvents = 'auto';
+/* This Function validated the player names. The function is called on click event by Start button*/
+function validation(){
+    if (document.getElementById('p1-name').value.length===0||document.getElementById('p2-name').value.length===0){
+        showMsg.innerText = 'Please enter names';
+        showMsg.style.color ='red';
     }
+    else{
+        if(p1.value && p2.value && p1.value === p2.value){
+            showMsg.innerText = 'Game needs two different players';
+            showMsg.style.color ='red';
+        }
+        else{
+            player1 = p1.value;
+            player1 = p1.value;
+            player2 = p2.value;
+            showMsg.style.color ='green';
+            showMsg.innerText = `${player1}'s turn`
+            document.getElementById('game-board').style.pointerEvents = 'auto';
+            document.getElementById('play-again').style.pointerEvents = 'auto';
+            document.getElementById('play-again').style.opacity = '1';
+        }
+    }
+    
+}
+
+/* */
+startBtn.addEventListener('click', (e)=>{
+    console.log('clicked')
+    e.preventDefault();
+    validation();
+    
 })
 
 
@@ -46,10 +74,12 @@ startBtn.addEventListener('click', (e)=>{
 function winnerAnnounce(data){
     if(data == 'X'){
         showMsg.innerText = `${player1} is the winner!`;
+        winner = player1;
     }
     else{
         console.log('checking else')
-       showMsg.innerText = `${player2} is the winner! `
+       showMsg.innerText = `${player2} is the winner! `;
+       winner = player2;
     }
     document.getElementById('game-board').style.pointerEvents = 'none';
 }
@@ -67,6 +97,7 @@ gameBoard.addEventListener('click', (e)=>{
             e.target.innerText = 'O';
             if(!clickCounter< 9){
                 showMsg.innerText = `${player1}'s turn`
+
             }
             
         }
@@ -78,7 +109,9 @@ gameBoard.addEventListener('click', (e)=>{
             
         } 
         if(clickCounter == 9){
-            showMsg.innerText = 'It\'s a Draw!!!'
+            showMsg.innerText = 'It\'s a Draw!!!';
+            showMsg.style.color = 'blue';
+            document.getElementById('game-board').style.pointerEvents = 'none';
         }
 
         
@@ -106,19 +139,36 @@ gameBoard.addEventListener('click', (e)=>{
     
 })
 
-
-/* On click event Resets the gameboard */
-playAgain.addEventListener('click', (e)=>{
+function gameBoardReset(){
     allSquares.forEach(square=>{ 
         square.innerText = '';
         square.style.backgroundColor= 'inherit';
     });
     clickCounter = 0;
+    showMsg.style.color= 'green';
+}
+
+
+/* Play Again only resets the game board and allows the same players to continue playing*/
+playAgain.addEventListener('click', (e)=>{
+    gameBoardReset();
+    document.getElementById('game-board').style.pointerEvents = 'auto';
+    showMsg.innerText = `${winner} plays first`;
+});
+/* */
+
+
+/* On click event Resets the gameboard */
+resetBtn.addEventListener('click', (e)=>{
+    gameBoardReset();
     player1 = '';
     player2 ='';
     p1.value ='';
     p2.value= '';
-    showMsg.innerText = ''
+    winner = '';
+    showMsg.innerText = '';
+    document.getElementById('play-again').style.pointerEvents = 'none';
+    document.getElementById('play-again').style.opacity = '.6';
 })
 /* End of reset */
 
