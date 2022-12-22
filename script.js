@@ -52,6 +52,7 @@ function validation(){
             player2 = p2.value;
             showMsg.style.color ='green';
             showMsg.innerText = `${player1}'s turn`
+            startBtn.style.pointerEvents = 'none';
             document.getElementById('game-board').style.pointerEvents = 'auto';
             document.getElementById('play-again').style.pointerEvents = 'auto';
             document.getElementById('play-again').style.opacity = '1';
@@ -153,7 +154,13 @@ function gameBoardReset(){
 playAgain.addEventListener('click', (e)=>{
     gameBoardReset();
     document.getElementById('game-board').style.pointerEvents = 'auto';
-    showMsg.innerText = `${winner} plays first`;
+    if(winner){
+        showMsg.innerText = `${winner} plays first`;
+    }
+    else{
+        showMsg.innerText = `${player1}'s turn`;
+    }
+    
 });
 /* */
 
@@ -167,8 +174,10 @@ resetBtn.addEventListener('click', (e)=>{
     p2.value= '';
     winner = '';
     showMsg.innerText = '';
+    document.getElementById('game-board').style.pointerEvents = 'none';
     document.getElementById('play-again').style.pointerEvents = 'none';
     document.getElementById('play-again').style.opacity = '.6';
+    startBtn.style.pointerEvents = 'auto';
 })
 /* End of reset */
 
