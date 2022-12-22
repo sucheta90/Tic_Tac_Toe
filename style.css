@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Vinyl&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Rubik Vinyl', cursive, sans-serif;
+    background-color: #4FE6F1;
+    /* background-color: 4FE6F1,5EDBEE,6CD1EB,7BC6E8,89BBE4,98B1E1,A6A6DE */
+    ;
+    /* font-family:Arial, Helvetica, sans-serif; */
+
+}
+main{
+    width: 550px;
+    height: 550px ;
+    
+}
+h1{
+    margin-top: 20px;
+    font-family: 'Rubik Vinyl', cursive, sans-serif;
+    color:rgb(215, 29, 150)
+}
+.score-board{
+    width: 550px;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.score-board label{
+    font-size: 1.2rem;
+    color:blue;
+    margin:4px;
+    
+}
+.score-board input{
+    width: 180px;
+    height: 2rem;
+    border-radius: 20px;
+    text-indent: 8px;
+}
+#show-msg{
+    letter-spacing: 2px;
+    color: green;
+    font-family: 'Roboto',sans-serif;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 600;
+}
+#start-btn{
+    display:block;
+    height: 2rem;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: inherit;
+    background-color: #f857a6;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+
+}
+
+
+.game-board{
+   margin-top: 30px ;
+   width: 100%;
+   height: fit-content; 
+   /* border: 5px solid aquamarine; */
+   padding: 0;
+   border-radius: 10%;
+   position: relative;
+   
+}
+/* Conencting lines*/
+.connect{
+    content: '';
+    height: 500px;
+    width: 6px;
+    background-color: blue;
+    /* position: absolute; */
+    bottom: 1.2rem;
+    left:0;
+    border-radius: 10px;
+    transform: rotate();
+    display: none;
+}
+.connect #line-1{
+    position:absolute;
+    left:16%;
+}
+/*End of Conencting lines*/
+.row{
+    height: calc(100%/3);
+    width: 100%;
+    display: flex;
+}
+
+.square{
+    /* background-color: rgba(255, 12, 73, 0.749); */
+    border: 4px solid aqua;
+    border-radius: 10%;
+    width: calc(100%/3);
+    height: 180px;
+    font-family: 'Rubik Vinyl', cursive, sans-serif;
+    /* font-family: 'Roboto',sans-serif; */
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reset{
+    width: 550px;
+    height: 2rem;
+    margin-top: 5px;
+    font-size: 1.5rem;
+    background-color:#f857a6;
+    font-family:inherit;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+/* .players{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+}
+select{
+    width: 100px;
+    height: 2rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+}
+#toss{
+    width: 10rem;
+    height: 3rem;
+    background-color: rgb(215, 29, 150);
+    color: aliceblue;
+} */

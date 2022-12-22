@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tic Tac Toe - Fun Game</title>
+  </head>
+  <body>
+    <main>
+      <h1>Tic Tac Toe</h1>
+      <!--Score Board-->
+      <div class="score-board">
+        <!-- <h2>SCORE BOARD</h2> -->
+        <form action="#">
+          <label for="p1-name">
+            Player 1
+            <input id="p1-name" type="text" placeholder="Player 1" />
+          </label>
+          <label for="p2-name">
+            Player 2
+            <input id="p2-name" type="text" placeholder="Player 2" />
+          </label>
+          <button id="start-btn">Start Game</button>
+        </form>
+        <div id="show-msg"></div>
+      </div>
+      <!--End of Score Board-->
+      <!--Players Sign Selection-->
+
+      <!-- <div class="players">
+        <label for="player-1-input">
+          Player 1
+          <select id="player-1-input" name="'player-1">
+            <option>select</option>
+            <option>X</option>
+            <option>O</option>
+          </select>
+        </label>
+        <label for="player-2-input">
+          Player 2
+          <select id="player-2-input" name="'player-1">
+            <option>select</option>
+            <option>X</option>
+            <option>O</option>
+          </select>
+        </label>
+      </div> -->
+      <!--End on Sign Selection-->
+      <!--Game Board-->
+      <!-- <div>
+        <button id="toss">TOSS to PLAY</button>
+        <span class="toss-winner"></span>
+      </div> -->
+      <div class="game-board" id="game-board">
+        <div id="r1" class="row">
+          <span id="r1c1" class="square"></span>
+          <span id="r1c2" class="square"></span>
+          <span id="r1c3" class="square"></span>
+        </div>
+        <div id="r2" class="row">
+          <span id="r2c1" class="square"></span>
+          <span id="r2c2" class="square"></span>
+          <span id="r2c3" class="square"></span>
+        </div>
+        <div id="r3" class="row">
+          <span id="r3c1" class="square"></span>
+          <span id="r3c2" class="square"></span>
+          <span id="r3c3" class="square"></span>
+        </div>
+        <div id="line-1" class="connect"></div>
+        <div id="line-2" class="connect"></div>
+        <div id="line-3" class="connect"></div>
+        <div id="line-4" class="connect"></div>
+        <div id="line-5" class="connect"></div>
+        <div id="line-6" class="connect"></div>
+        <div id="line-7" class="connect"></div>
+        <div id="line-8" class="connect"></div>
+      </div>
+      <button id="reset">Play Again</button>
+      <!--End of Game Board-->
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
