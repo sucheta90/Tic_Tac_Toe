@@ -11,9 +11,9 @@ let p2 = document.getElementById('p2-name');
 
 let colorArray = ['#4FE6F1','#5EDBEE','#6CD1EB','#7BC6E8','#89BBE4','#98B1E1','#A6A6DE'];
 
-setInterval((()=>{
+/*setInterval((()=>{
 
-}), 1000)
+}), 1000)*/
 
 let clickCounter = 0;
 const combos = [
@@ -29,6 +29,7 @@ const combos = [
 let player1;
 let player2;
 let winner;
+let runner;
 
 /* By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById('game-board').style.pointerEvents = 'none';
@@ -76,11 +77,13 @@ function winnerAnnounce(data){
     if(data == 'X'){
         showMsg.innerText = `${player1} is the winner!`;
         winner = player1;
+        runner = player2
     }
     else{
         console.log('checking else')
        showMsg.innerText = `${player2} is the winner! `;
        winner = player2;
+       runner = player1;
     }
     document.getElementById('game-board').style.pointerEvents = 'none';
 }
@@ -133,7 +136,6 @@ gameBoard.addEventListener('click', (e)=>{
     } 
     
     else{
-        alert('wrong box')
         clickCounter--;
     }
     
@@ -152,9 +154,12 @@ function gameBoardReset(){
 
 /* Play Again only resets the game board and allows the same players to continue playing*/
 playAgain.addEventListener('click', (e)=>{
+    
     gameBoardReset();
     document.getElementById('game-board').style.pointerEvents = 'auto';
     if(winner){
+        player1 = winner;
+        player2 = runner;
         showMsg.innerText = `${winner} plays first`;
     }
     else{
@@ -173,6 +178,7 @@ resetBtn.addEventListener('click', (e)=>{
     p1.value ='';
     p2.value= '';
     winner = '';
+    runner = '';
     showMsg.innerText = '';
     document.getElementById('game-board').style.pointerEvents = 'none';
     document.getElementById('play-again').style.pointerEvents = 'none';
