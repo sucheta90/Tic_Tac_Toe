@@ -54,6 +54,7 @@ function validation(){
             showMsg.style.color ='green';
             showMsg.innerText = `${player1}'s turn`
             startBtn.style.pointerEvents = 'none';
+            startBtn.style.opacity = '.6'
             document.getElementById('game-board').style.pointerEvents = 'auto';
             document.getElementById('play-again').style.pointerEvents = 'auto';
             document.getElementById('play-again').style.opacity = '1';
@@ -184,6 +185,7 @@ resetBtn.addEventListener('click', (e)=>{
     document.getElementById('play-again').style.pointerEvents = 'none';
     document.getElementById('play-again').style.opacity = '.6';
     startBtn.style.pointerEvents = 'auto';
+    startBtn.style.opacity = '1'
 })
 /* End of reset */
 
