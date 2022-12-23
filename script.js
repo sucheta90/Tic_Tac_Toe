@@ -69,7 +69,6 @@ function validation(){
 
 // Start-btn - on 'click' event starts the player validation process. Once successfully validated, will enable the game board for click events and enables Play Again -btn.
 startBtn.addEventListener('click', (e)=>{
-    // console.log('clicked')
     e.preventDefault();
     validation();
     
@@ -112,7 +111,7 @@ gameBoard.addEventListener('click', (e)=>{
         }
         else{
             e.target.innerText = 'X';
-            if(!clickCounter<9){
+            if(!clickCounte < 9){
                 showMsg.innerText = `${player2}'s turn`
             }
             
