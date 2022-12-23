@@ -9,13 +9,15 @@ const showMsg = document.getElementById('show-msg')
 let p1 = document.getElementById('p1-name');
 let p2 = document.getElementById('p2-name');
 
-let colorArray = ['#4FE6F1','#5EDBEE','#6CD1EB','#7BC6E8','#89BBE4','#98B1E1','#A6A6DE'];
+// let colorArray = ['#4FE6F1','#5EDBEE','#6CD1EB','#7BC6E8','#89BBE4','#98B1E1','#A6A6DE'];
 
 /*setInterval((()=>{
 
 }), 1000)*/
 
-let clickCounter = 0;
+let clickCounter = 0; // keeps a track of the clicks.
+
+// Combos is an array of winning combination of id's. 
 const combos = [
     ['r1c1', 'r1c2','r1c3'], 
     ['r2c1','r2c2','r2c3'],
@@ -26,17 +28,19 @@ const combos = [
     ['r1c2','r2c2','r3c2'],
     ['r1c3','r2c3', 'r3c3']
 ]
+
+// Variables below stores players name and track winner and the runner up.
 let player1;
 let player2;
 let winner;
 let runner;
 
-/* By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
+// By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById('game-board').style.pointerEvents = 'none';
 document.getElementById('play-again').style.pointerEvents = 'none';
 document.getElementById('play-again').style.opacity = '.6';
 
-/* This Function validated the player names. The function is called on click event by Start button*/
+// This Function validated the player names. The function is called on click event by Start button.
 function validation(){
     if (document.getElementById('p1-name').value.length===0||document.getElementById('p2-name').value.length===0){
         showMsg.innerText = 'Please enter names';
@@ -63,9 +67,9 @@ function validation(){
     
 }
 
-/* */
+// Start-btn - on 'click' event starts the player validation process. Once successfully validated, will enable the game board for click events and enables Play Again -btn.
 startBtn.addEventListener('click', (e)=>{
-    console.log('clicked')
+    // console.log('clicked')
     e.preventDefault();
     validation();
     
@@ -73,7 +77,7 @@ startBtn.addEventListener('click', (e)=>{
 
 
 
-
+// Show a mesage - Announces Winner and disables the game board to avoid unnecessary click events.
 function winnerAnnounce(data){
     if(data == 'X'){
         showMsg.innerText = `${player1} is the winner!`;
@@ -93,7 +97,7 @@ function winnerAnnounce(data){
 
 
 
-
+// Game Board 
 gameBoard.addEventListener('click', (e)=>{
    
     clickCounter++;
@@ -143,6 +147,8 @@ gameBoard.addEventListener('click', (e)=>{
     
 })
 
+
+// This is a common fucntion used in Play-again and Reset buttons. 
 function gameBoardReset(){
     allSquares.forEach(square=>{ 
         square.innerText = '';
@@ -153,7 +159,7 @@ function gameBoardReset(){
 }
 
 
-/* Play Again only resets the game board and allows the same players to continue playing*/
+// Play Again only resets the game board and allows the same players to continue playing
 playAgain.addEventListener('click', (e)=>{
     
     gameBoardReset();
