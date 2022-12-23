@@ -20,12 +20,17 @@ body{
 
 }
 main{
-    width: 550px;
-    height: 550px ;
-    
+    width: 500px;
+    height: 500px ;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 h1{
-    margin-top: 20px;
+    margin-top: 10px;
+    text-align: center;
     font-family: 'Rubik Vinyl', cursive, sans-serif;
     color: white;
     filter: drop-shadow(.5rem .5rem .3rem rgba(248, 87, 166, .6));
@@ -42,7 +47,7 @@ h1{
 .score-board label{
     font-size: 1.2rem;
     color:blue;
-    margin:4px;
+    margin:2px;
     
 }
 .score-board input{
@@ -53,6 +58,11 @@ h1{
     text-transform: capitalize;
 }
 #show-msg{
+    height: 2rem;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+    width: fit-content;
     letter-spacing: 2px;
     color: green;
     font-family: 'Roboto',sans-serif;
@@ -83,43 +93,12 @@ h1{
 }
 
 
-#banner{
-    height: 100px;
-    width: 300px;
-    border: 1px solid black;
-    border-left-style:dotted ;
-    border-right-style:dotted ;
-    position: relative;
-    border-right: transparent;
-    border-left: transparent;
-    display: none;
-}
-#banner::before{
-    content: '';
-    height: 100px;
-    width:100px;
-    border: 1px solid black;
-    position: absolute;
-    left: -65px;
-    border-radius: 100%;
-
-}
-#banner::after{
-    content: '';
-    height: 100px;
-    width:100px;
-    border: 1px solid black;
-    position: absolute;
-    right: -65px;
-    border-radius: 100%
-
-}
 
 .game-board{
    margin-top: 20px ;
    margin-bottom: 20px;
-   width: 100%;
-   height: fit-content; 
+   width: 480px;
+   height: 480px; 
    /* border: 5px solid aquamarine; */
    padding: 0;
    border-radius: 10%;
@@ -138,7 +117,7 @@ h1{
     border: 4px solid aqua;
     border-radius: 10%;
     width: calc(100%/3);
-    height: 180px;
+    height: 160px;
     font-family: 'Acme', sans-serif;
     font-size: 2rem;
     text-align: center;
@@ -192,9 +171,61 @@ h1{
     transition: transform .4s;
 }
 
+@media only screen and (max-width: 600px) {
+    body {
+      transform: scale(.75);
+      transition: transform .4s;
+      margin-top:0;
+      padding-top:0;
+    }
+  }
+@media only screen and (max-width: 480px) {
+    body{
+        width: 100vw;
+        height: 100vw;
+        
+    }
+    main{
+        transform: scale(.8);
+        transition: transform 0.4s;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    h1{
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .score-board label{
+        display: block;
+        
+    }
+    .score-board input{
+        width: 180px;
+        height: 2rem;
+        border-radius: 20px;
+        text-indent: 8px;
+        text-transform: capitalize;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
 
-
-
+    #show-msg{
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 380px){
+    main{
+        transform: scale(.7);
+        transition: transform 0.4s;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 
 
 /* .players{
