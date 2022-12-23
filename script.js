@@ -103,7 +103,7 @@ gameBoard.addEventListener('click', (e)=>{
     if(!e.target.innerText){
         if(clickCounter % 2 === 0){
             e.target.innerText = 'O';
-            if(!clickCounter< 9){
+            if(clickCounter< 9){
                 showMsg.innerText = `${player1}'s turn`
 
             }
@@ -111,7 +111,7 @@ gameBoard.addEventListener('click', (e)=>{
         }
         else{
             e.target.innerText = 'X';
-            if(!clickCounte < 9){
+            if(clickCounter < 9){
                 showMsg.innerText = `${player2}'s turn`
             }
             
