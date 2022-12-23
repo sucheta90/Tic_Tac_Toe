@@ -37,7 +37,7 @@ let runner;
 
 // By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById('game-board').style.pointerEvents = 'none';
-document.getElementById('play-again').style.pointerEvents = 'none';
+document.getElementById('play-again').setAttribute('disabled', '');
 document.getElementById('play-again').style.opacity = '.6';
 
 // This Function validated the player names. The function is called on click event by Start button.
@@ -47,7 +47,7 @@ function validation(){
         showMsg.style.color ='red';
     }
     else{
-        if(p1.value && p2.value && p1.value === p2.value){
+        if(p1.value && p2.value && p1.value.toUpperCase() === p2.value.toUpperCase()){
             showMsg.innerText = 'Game needs two different players';
             showMsg.style.color ='red';
         }
@@ -57,11 +57,14 @@ function validation(){
             player2 = p2.value;
             showMsg.style.color ='green';
             showMsg.innerText = `${player1}'s turn`
-            startBtn.style.pointerEvents = 'none';
-            startBtn.style.opacity = '.6'
+            startBtn.setAttribute('disabled', '');
+            p1.setAttribute('disabled', '');
+            p2.setAttribute('disabled', '');
+            startBtn.style.opacity = '.6';
             document.getElementById('game-board').style.pointerEvents = 'auto';
-            document.getElementById('play-again').style.pointerEvents = 'auto';
+            document.getElementById('play-again').removeAttribute('disabled');
             document.getElementById('play-again').style.opacity = '1';
+            
         }
     }
     
@@ -187,10 +190,13 @@ resetBtn.addEventListener('click', (e)=>{
     runner = '';
     showMsg.innerText = '';
     document.getElementById('game-board').style.pointerEvents = 'none';
-    document.getElementById('play-again').style.pointerEvents = 'none';
+    document.getElementById('play-again').setAttribute('disabled', '');
     document.getElementById('play-again').style.opacity = '.6';
-    startBtn.style.pointerEvents = 'auto';
+    p1.removeAttribute('disabled');
+    p2.removeAttribute('disabled');
+    startBtn.removeAttribute('disabled');
     startBtn.style.opacity = '1'
+
 })
 /* End of reset */
 
