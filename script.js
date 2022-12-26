@@ -105,8 +105,38 @@ function winnerAnnounce(data){
     document.getElementById('game-board').style.pointerEvents = 'none';
 }
     
-
-
+// This function updates the score board and keeps a track of the rounds
+function updateScoreBoard(winner){
+    if(roundTracker.length <= 5){
+        if(winner){
+            roundTracker.push(winner);
+            if(winner == player1){
+                //document.getElementById(`p1r${roundTracker.length}`).innerText = '✓';
+                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10003;';
+                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10060;';
+            }
+            else{
+                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10003;';
+                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10060;';
+            }
+        }
+        else{
+            roundTracker.push('');
+            document.getElementById(`p1r${roundTracker.length}`).innerText = 'D';
+            document.getElementById(`p2r${roundTracker.length}`).innerText = 'D'; 
+            
+        }
+        if(roundTracker.length == 5){
+            console.log('inside > 5')
+            showMsg.innerText = 'GAME OVER'
+            document.getElementById('play-again').setAttribute('disabled', '');
+            document.getElementById('play-again').style.opacity = '.6';
+        }
+    }
+    
+}
+        
+            
 
 
 // Game Board 
@@ -133,12 +163,9 @@ gameBoard.addEventListener('click', (e)=>{
             showMsg.innerText = 'It\'s a Draw!!!';
             showMsg.style.color = 'blue';
             document.getElementById('game-board').style.pointerEvents = 'none';
-            if(roundTracker.length <= 5){
-                roundTracker.push('D');
-                document.getElementById(`p1r${roundTracker.length}`).innerHTML = 'D';
-                document.getElementById(`p2r${roundTracker.length}`).innerHTML = 'D';
-
-            }
+            updateScoreBoard(winner);
+           
+            
         }
         
         if(clickCounter >= 5){
@@ -150,18 +177,8 @@ gameBoard.addEventListener('click', (e)=>{
                         document.getElementById(combos[i][1]).style.backgroundColor= '#ffcfd2'
                         document.getElementById(combos[i][2]).style.backgroundColor= '#ffcfd2'
                         winnerAnnounce(document.getElementById(combos[i][0]).innerText); 
-                        if(roundTracker.length <= 5){
-                            roundTracker.push(winner);
-                            if(winner == player1){
-                                //document.getElementById(`p1r${roundTracker.length}`).innerText = '✓';
-                                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10003;';
-                                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10060;';
-                            }
-                            else{
-                                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10003;';
-                                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10060;';
-                            }
-                        }
+                        updateScoreBoard(winner);
+                       
                     }
             }   
         }
