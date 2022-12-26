@@ -8,7 +8,9 @@ const startBtn = document.getElementById('start-btn');
 const showMsg = document.getElementById('show-msg')
 let p1 = document.getElementById('p1-name');
 let p2 = document.getElementById('p2-name');
-
+let header1 = document.getElementById('p1-header');
+let header2 = document.getElementById('p2-header');
+ 
 // let colorArray = ['#4FE6F1','#5EDBEE','#6CD1EB','#7BC6E8','#89BBE4','#98B1E1','#A6A6DE'];
 
 /*setInterval((()=>{
@@ -35,6 +37,12 @@ let player2;
 let winner;
 let runner;
 
+//To keep a track of rounds, I am maintaining an array.
+let roundTracker = [];
+
+//Function trackround
+
+
 // By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById('game-board').style.pointerEvents = 'none';
 document.getElementById('play-again').setAttribute('disabled', '');
@@ -55,6 +63,8 @@ function validation(){
             player1 = p1.value;
             player1 = p1.value;
             player2 = p2.value;
+            header1.innerText = player1;
+            header2.innerText = player2;
             showMsg.style.color ='green';
             showMsg.innerText = `${player1}'s turn`
             startBtn.setAttribute('disabled', '');
@@ -123,8 +133,13 @@ gameBoard.addEventListener('click', (e)=>{
             showMsg.innerText = 'It\'s a Draw!!!';
             showMsg.style.color = 'blue';
             document.getElementById('game-board').style.pointerEvents = 'none';
-        }
+            if(roundTracker.length <= 5){
+                roundTracker.push('D');
+                document.getElementById(`p1r${roundTracker.length}`).innerHTML = 'D';
+                document.getElementById(`p2r${roundTracker.length}`).innerHTML = 'D';
 
+            }
+        }
         
         if(clickCounter >= 5){
             for(let i = 0; i < combos.length; i++) {
@@ -135,6 +150,18 @@ gameBoard.addEventListener('click', (e)=>{
                         document.getElementById(combos[i][1]).style.backgroundColor= '#FCD4B7'
                         document.getElementById(combos[i][2]).style.backgroundColor= '#FCD4B7'
                         winnerAnnounce(document.getElementById(combos[i][0]).innerText); 
+                        if(roundTracker.length <= 5){
+                            roundTracker.push(winner);
+                            if(winner == player1){
+                                //document.getElementById(`p1r${roundTracker.length}`).innerText = '✓';
+                                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10003;';
+                                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10060;';
+                            }
+                            else{
+                                document.getElementById(`p2r${roundTracker.length}`).innerHTML = '&#10003;';
+                                document.getElementById(`p1r${roundTracker.length}`).innerHTML = '&#10060;';
+                            }
+                        }
                     }
             }   
         }
@@ -188,6 +215,8 @@ resetBtn.addEventListener('click', (e)=>{
     p2.value= '';
     winner = '';
     runner = '';
+    roundTracker = [];
+    document.querySelectorAll('td')
     showMsg.innerText = '';
     document.getElementById('game-board').style.pointerEvents = 'none';
     document.getElementById('play-again').setAttribute('disabled', '');

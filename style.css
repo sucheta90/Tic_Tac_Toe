@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Vinyl&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,700&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -7,35 +8,43 @@
 }
 body{
     width: 100%;
-    height: 100%;
+    max-width: 1000px;
+    min-width: 300px;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     font-family: 'Rubik Vinyl', cursive, sans-serif;
-    background-color: #4FE6F1;
+    /* background-color: linear-gradient(90deg, #03045e,#a2d2ff,#caf0f8); */
+    position: relative;
     /* background-color: 4FE6F1,5EDBEE,6CD1EB,7BC6E8,89BBE4,98B1E1,A6A6DE */
     ;
     /* font-family:Arial, Helvetica, sans-serif; */
 
 }
 main{
-    width: 500px;
-    height: 500px ;
+    width: 400px;
+    height: 400px ;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    position: absolute;
+    top: 0;
 }
 h1{
+    font-size: 3rem;
     margin-top: 10px;
     text-align: center;
-    font-family: 'Rubik Vinyl', cursive, sans-serif;
-    color: white;
-    filter: drop-shadow(.5rem .5rem .3rem rgba(248, 87, 166, .6));
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #03045e;
+    text-shadow: 2px 3px #caf0f8 , 3px 4px #a2d2ff;
+    
 }
-.score-board{
+#player-info{
     width: 550px;
     height: 10rem;
     display: flex;
@@ -44,13 +53,14 @@ h1{
     justify-content: space-evenly;
     
 }
-.score-board label{
+#player-info label{
+    font-family:'IBM Plex Sans', sans-serif;
     font-size: 1.2rem;
-    color:blue;
+    color:#03045e;
     margin:2px;
     
 }
-.score-board input{
+#player-info input{
     width: 180px;
     height: 2rem;
     border-radius: 20px;
@@ -59,7 +69,6 @@ h1{
 }
 #show-msg{
     height: 2rem;
-    margin-top: 10px;
     padding-top: 10px;
     font-size: 20px;
     width: fit-content;
@@ -76,7 +85,7 @@ h1{
     width: 300px;
     margin: 0 auto;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-family: inherit;
     background-color: #f857a6;
     color: white;
@@ -97,9 +106,8 @@ h1{
 .game-board{
    margin-top: 20px ;
    margin-bottom: 20px;
-   width: 480px;
-   height: 480px; 
-   /* border: 5px solid aquamarine; */
+   width: 300px;
+   height: 300px; 
    padding: 0;
    border-radius: 10%;
    position: relative;
@@ -117,7 +125,7 @@ h1{
     border: 4px solid aqua;
     border-radius: 10%;
     width: calc(100%/3);
-    height: 160px;
+    height: 100px;
     font-family: 'Acme', sans-serif;
     font-size: 2rem;
     text-align: center;
@@ -129,10 +137,11 @@ h1{
 }
 
 #reset{
-    width: 200px;
+   
+    width: 100px;
     margin: 5px;
     height: 2rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color:#f857a6;
     font-family:inherit;
     text-transform: uppercase;
@@ -150,10 +159,10 @@ h1{
     transition: transform .4s;
 }
 #play-again{
-    width: 200px;
+    width:140px;
     height: 2rem;
     margin: 5px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color:#f857a6;
     font-family:inherit;
     text-transform: uppercase;
@@ -197,11 +206,11 @@ h1{
         margin: 0;
         margin-bottom: 15px;
     }
-    .score-board label{
+    #player-info label{
         display: block;
         
     }
-    .score-board input{
+    #player-info input{
         width: 180px;
         height: 2rem;
         border-radius: 20px;
@@ -228,21 +237,22 @@ h1{
 }
 
 
-/* .players{
-    width: 90vw;
-    display: flex;
-    justify-content: space-between;
+#score-board{
+    width: 80%;
+    height: 20%;
+    /* border: 1px solid black; */
+    position: absolute;
+    bottom:20px;
 }
-select{
+table{
+    width: 100%;
+}
+td{
+    width: calc(500px/5);
+    border: 1px solid black;
+}
+th{
     width: 100px;
-    height: 2rem;
-    text-align: center;
-    font-weight: 600;
-    font-size: 20px;
+    height: 40px;
+
 }
-#toss{
-    width: 10rem;
-    height: 3rem;
-    background-color: rgb(215, 29, 150);
-    color: aliceblue;
-} */

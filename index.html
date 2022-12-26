@@ -9,10 +9,10 @@
   </head>
   <body>
     <main>
+      <!--Main Heading-->
       <h1>Tic Tac Toe</h1>
-      <!--Score Board-->
-      <div class="score-board">
-        <!-- <h2>SCORE BOARD</h2> -->
+      <!--Player Information / input-->
+      <div id="player-info">
         <form action="#">
           <label for="p1-name">
             Player 1
@@ -28,7 +28,9 @@
           <div id="banner"></div>
         </div>
       </div>
+      <!-- End of Player Information / input-->
 
+      <!--Game Board-->
       <div class="game-board" id="game-board">
         <div id="r1" class="row">
           <span id="r1c1" class="square"></span>
@@ -54,11 +56,43 @@
         <div id="line-7" class="connect"></div>
         <div id="line-8" class="connect"></div>
       </div>
-      <button id="play-again">Play Again</button>
-      <button id="reset">Reset</button>
+      <div class="buttons">
+        <button id="play-again">Play Again</button>
+        <button id="reset">Reset</button>
+      </div>
 
       <!--End of Game Board-->
     </main>
+    <!--Score Board-->
+    <aside id="score-board">
+      <h2>SCORE BOARD</h2>
+      <table>
+        <tr>
+          <th>Rounds</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+        </tr>
+        <tr>
+          <th id="p1-header">Player 1</th>
+          <td id="p1r1"></td>
+          <td id="p1r2"></td>
+          <td id="p1r3"></td>
+          <td id="p1r4"></td>
+          <td id="p1r5"></td>
+        </tr>
+        <tr>
+          <th id="p2-header">Player 2</th>
+          <td id="p2r1"></td>
+          <td id="p2r2"></td>
+          <td id="p2r3"></td>
+          <td id="p2r4"></td>
+          <td id="p2r5"></td>
+        </tr>
+      </table>
+    </aside>
 
     <script src="script.js"></script>
   </body>
