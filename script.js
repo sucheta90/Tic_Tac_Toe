@@ -146,9 +146,9 @@ gameBoard.addEventListener('click', (e)=>{
                 if (document.getElementById(combos[i][0]).innerText && 
                     document.getElementById(combos[i][0]).innerText == document.getElementById(combos[i][1]).innerText &&
                     document.getElementById(combos[i][0]).innerText == document.getElementById(combos[i][2]).innerText) {
-                        document.getElementById(combos[i][0]).style.backgroundColor= '#FCD4B7'
-                        document.getElementById(combos[i][1]).style.backgroundColor= '#FCD4B7'
-                        document.getElementById(combos[i][2]).style.backgroundColor= '#FCD4B7'
+                        document.getElementById(combos[i][0]).style.backgroundColor= '#ffcfd2'
+                        document.getElementById(combos[i][1]).style.backgroundColor= '#ffcfd2'
+                        document.getElementById(combos[i][2]).style.backgroundColor= '#ffcfd2'
                         winnerAnnounce(document.getElementById(combos[i][0]).innerText); 
                         if(roundTracker.length <= 5){
                             roundTracker.push(winner);
@@ -216,7 +216,6 @@ resetBtn.addEventListener('click', (e)=>{
     winner = '';
     runner = '';
     roundTracker = [];
-    document.querySelectorAll('td')
     showMsg.innerText = '';
     document.getElementById('game-board').style.pointerEvents = 'none';
     document.getElementById('play-again').setAttribute('disabled', '');
@@ -225,6 +224,12 @@ resetBtn.addEventListener('click', (e)=>{
     p2.removeAttribute('disabled');
     startBtn.removeAttribute('disabled');
     startBtn.style.opacity = '1'
+    // Below code clears the table data on Reset.
+    document.querySelectorAll('td').forEach(td=>{
+        return td.innerHTML = '';
+    })
+    document.getElementById('p1-header').innerText = 'Player 1';
+    document.getElementById('p2-header').innerText = 'Player 2';
 
 })
 /* End of reset */

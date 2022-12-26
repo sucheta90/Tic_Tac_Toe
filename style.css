@@ -7,6 +7,8 @@
     padding: 0;
 }
 body{
+    margin: 0 auto;
+    background-color: #03071e;
     width: 100%;
     max-width: 1000px;
     min-width: 300px;
@@ -40,8 +42,8 @@ h1{
     margin-top: 10px;
     text-align: center;
     font-family: 'IBM Plex Sans', sans-serif;
-    color: #03045e;
-    text-shadow: 2px 3px #caf0f8 , 3px 4px #a2d2ff;
+    color: white;
+    text-shadow:2px 5px rgba(248, 87, 166, 0.8);
     
 }
 #player-info{
@@ -55,8 +57,9 @@ h1{
 }
 #player-info label{
     font-family:'IBM Plex Sans', sans-serif;
-    font-size: 1.2rem;
-    color:#03045e;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color:#bbd0ff;
     margin:2px;
     
 }
@@ -86,7 +89,7 @@ h1{
     margin: 0 auto;
     text-align: center;
     margin-top: 1rem;
-    font-family: inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
     background-color: #f857a6;
     color: white;
     font-weight: 600;
@@ -112,6 +115,7 @@ h1{
    border-radius: 10%;
    position: relative;
    
+   /* opacity: 80%; */
 }
 
 .row{
@@ -122,20 +126,24 @@ h1{
 
 .square{
     /* background-color: rgba(255, 12, 73, 0.749); */
-    border: 4px solid aqua;
+    border: 2px solid #caf0f8;
     border-radius: 10%;
     width: calc(100%/3);
     height: 100px;
     font-family: 'Acme', sans-serif;
     font-size: 2rem;
     text-align: center;
-    text-shadow: .5rem .5rem 6px grey ;
+    color: #9bf6ff;
+    text-shadow: .25rem .25rem 6px grey ;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: .5rem .5rem .5rem rgba(248, 87, 166, 0.6);
 }
-
+.square:hover{
+    transform: scale(1.1);
+    transition: transform 0.4s;
+}
 #reset{
    
     width: 100px;
@@ -143,7 +151,7 @@ h1{
     height: 2rem;
     font-size: 1rem;
     background-color:#f857a6;
-    font-family:inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
     text-transform: uppercase;
     letter-spacing: .2rem;
     font-weight: 600;
@@ -164,7 +172,7 @@ h1{
     margin: 5px;
     font-size: 1rem;
     background-color:#f857a6;
-    font-family:inherit;
+    font-family: 'IBM Plex Sans', sans-serif;
     text-transform: uppercase;
     letter-spacing: .1rem;
     font-weight: 600;
@@ -238,9 +246,12 @@ h1{
 
 
 #score-board{
+    /* background-color: #03071e; */
+    color: aqua;
     width: 80%;
     height: 20%;
     /* border: 1px solid black; */
+    font-family: 'IBM Plex Sans', sans-serif;
     position: absolute;
     bottom:20px;
 }
