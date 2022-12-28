@@ -14,14 +14,26 @@
       <!--Player Information / input-->
       <div id="player-info">
         <form action="#">
-          <label for="p1-name">
-            Player 1
-            <input id="p1-name" type="text" placeholder="Player 1" />
-          </label>
-          <label for="p2-name">
-            Player 2
-            <input id="p2-name" type="text" placeholder="Player 2" />
-          </label>
+          <div id="input-fields">
+            <label for="p1-name">
+              Player 1
+              <input id="p1-name" type="text" placeholder="Player 1" />
+            </label>
+            <label for="p2-name">
+              Player 2
+              <input id="p2-name" type="text" placeholder="Player 2" />
+            </label>
+            <label for="round-select">
+              Rounds
+              <select id="round-select">
+                <!-- <option>select</option> -->
+                <option>3</option>
+                <option>5</option>
+                <option>7</option>
+                <option>9</option>
+              </select>
+            </label>
+          </div>
           <button id="start-btn">Start Game</button>
         </form>
         <div id="show-msg">
@@ -47,14 +59,6 @@
           <span id="r3c2" class="square"></span>
           <span id="r3c3" class="square"></span>
         </div>
-        <div id="line-1" class="connect"></div>
-        <div id="line-2" class="connect"></div>
-        <div id="line-3" class="connect"></div>
-        <div id="line-4" class="connect"></div>
-        <div id="line-5" class="connect"></div>
-        <div id="line-6" class="connect"></div>
-        <div id="line-7" class="connect"></div>
-        <div id="line-8" class="connect"></div>
       </div>
       <div class="buttons">
         <button id="play-again">Play Again</button>
@@ -64,35 +68,24 @@
       <!--End of Game Board-->
     </main>
     <!--Score Board-->
-    <aside id="score-board">
-      <h2>SCORE BOARD</h2>
+    <div id="score-board">
       <table>
-        <tr>
-          <th>Rounds</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-        </tr>
-        <tr>
-          <th id="p1-header">Player 1</th>
-          <td id="p1r1"></td>
-          <td id="p1r2"></td>
-          <td id="p1r3"></td>
-          <td id="p1r4"></td>
-          <td id="p1r5"></td>
-        </tr>
-        <tr>
-          <th id="p2-header">Player 2</th>
-          <td id="p2r1"></td>
-          <td id="p2r2"></td>
-          <td id="p2r3"></td>
-          <td id="p2r4"></td>
-          <td id="p2r5"></td>
-        </tr>
+        <thead>
+          <h2>SCORE BOARD</h2>
+        </thead>
+        <tbody id="score-table">
+          <tr id="round-header">
+            <th>Rounds</th>
+          </tr>
+          <tr id="player1-score">
+            <th id="p1-header">Player 1</th>
+          </tr>
+          <tr id="player2-score">
+            <th id="p2-header">Player 2</th>
+          </tr>
+        </tbody>
       </table>
-    </aside>
+    </div>
 
     <script src="script.js"></script>
   </body>
