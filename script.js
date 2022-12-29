@@ -12,6 +12,8 @@ let header1 = document.getElementById("p1-header");
 let header2 = document.getElementById("p2-header");
 let roundCount = document.getElementById("round-select");
 let table = document.getElementById("score-table");
+let banner = document.getElementById("banner");
+let defaultSign = {};
 
 // let colorArray = ['#4FE6F1','#5EDBEE','#6CD1EB','#7BC6E8','#89BBE4','#98B1E1','#A6A6DE'];
 
@@ -41,8 +43,6 @@ let runner;
 
 //To keep a track of rounds, I am maintaining an array.
 let roundTracker = [];
-
-//Function trackround
 
 // By Default the Game Board is disabled and will not register click events. The default value changes by Clicking Start Button  */
 document.getElementById("game-board").style.pointerEvents = "none";
@@ -82,6 +82,11 @@ function validation() {
       document.getElementById("play-again").removeAttribute("disabled");
       document.getElementById("play-again").style.opacity = "1";
       createScoreColumn(roundCount.value, table);
+      document.getElementById("score-board").style.display = "block";
+      defaultSign = {
+        X: player1,
+        O: player2,
+      };
     }
   }
 }
@@ -95,21 +100,21 @@ startBtn.addEventListener("click", (e) => {
 // Show a mesage - Announces Winner and disables the game board to avoid unnecessary click events.
 function winnerAnnounce(data) {
   if (data == "X") {
-    showMsg.innerText = `${player1} is the winner!`;
-    winner = player1;
-    runner = player2;
+    winner = defaultSign.X;
+    runner = defaultSign.O;
   } else {
     // console.log("checking else");
-    showMsg.innerText = `${player2} is the winner! `;
-    winner = player2;
-    runner = player1;
+    winner = defaultSign.O;
+    runner = defaultSign.X;
   }
+  showMsg.innerText = `${winner} is the winner! `;
   document.getElementById("game-board").style.pointerEvents = "none";
 }
 
 // This function updates the score board and keeps a track of the rounds
 function updateScoreBoard(winner_name) {
-  if (roundTracker.length <= roundCount.value) {
+  console.log(defaultSign);
+  if (roundTracker.length <= parseInt(roundCount.value)) {
     if (winner_name) {
       roundTracker.push(winner_name);
       if (winner_name == player1) {
@@ -130,11 +135,35 @@ function updateScoreBoard(winner_name) {
       document.getElementById(`p2r${roundTracker.length}`).innerText = "D";
     }
     if (roundTracker.length == parseInt(roundCount.value)) {
-      console.log("inside > 5");
-      showMsg.innerText = "GAME OVER";
+      finale(roundTracker);
       document.getElementById("play-again").setAttribute("disabled", "");
       document.getElementById("play-again").style.opacity = ".6";
     }
+  }
+}
+
+function finale(roundTracker) {
+  let p1count = 0;
+  let p2count = 0;
+  banner.style.display = "block";
+  gameBoard.style.opacity = "20%";
+  for (let i = 0; i < roundTracker.length; i++) {
+    if (roundTracker[i] == player1) {
+      p1count++;
+
+      console.log(`${i} time = ${player1} ${p1count}`);
+      console.log(typeof p1count);
+    } else if (roundTracker[i] == player2) {
+      p2count++;
+      console.log(`${i} time = ${player2} ${p2count}`);
+    }
+  }
+  if (p1count > p2count) {
+    banner.innerText = `GAME OVER \n ${player1} is the Champion!!!`;
+  } else if (p2count > p1count) {
+    banner.innerText = `GAME OVER \n ${player2} is the Champion!!!`;
+  } else if (p1count == p2count) {
+    banner.innerText = `GAME OVER \n IT's a TIE!`;
   }
 }
 
@@ -145,12 +174,12 @@ gameBoard.addEventListener("click", (e) => {
     if (clickCounter % 2 === 0) {
       e.target.innerText = "O";
       if (clickCounter < 9) {
-        showMsg.innerText = `${player1}'s turn`;
+        showMsg.innerText = `${defaultSign.X}'s turn`;
       }
     } else {
       e.target.innerText = "X";
       if (clickCounter < 9) {
-        showMsg.innerText = `${player2}'s turn`;
+        showMsg.innerText = `${defaultSign.O}'s turn`;
       }
     }
     // check for winner
@@ -174,8 +203,7 @@ gameBoard.addEventListener("click", (e) => {
           //return;
           break;
         }
-      }
-      // check for draw
+      } // check for draw
       if (clickCounter == 9 && !winner) {
         console.log("checking else");
         showMsg.innerText = "It's a Draw!!!";
@@ -202,12 +230,13 @@ playAgain.addEventListener("click", (e) => {
   gameBoardReset();
   document.getElementById("game-board").style.pointerEvents = "auto";
   if (winner) {
-    player1 = winner;
-    player2 = runner;
-    showMsg.innerText = `${winner} plays first`;
-  } else {
-    showMsg.innerText = `${player1}'s turn`;
+    defaultSign.X = winner;
+    defaultSign.O = runner;
   }
+  showMsg.innerText = `${defaultSign.X} plays first`;
+  console.log(winner);
+  winner = "";
+  runner = "";
 });
 /* */
 
@@ -234,6 +263,10 @@ resetBtn.addEventListener("click", (e) => {
   document.getElementById("p2-header").innerText = "Player 2";
   roundCount.value = "3";
   resetScoreBoard(table);
+  document.getElementById("score-board").style.display = "none";
+  banner.style.display = "none";
+  banner.innerText = "";
+  gameBoard.style.opacity = "100%";
 });
 /* End of reset */
 
@@ -263,9 +296,7 @@ function createScoreColumn(num, element) {
 // This function resets the the ScoreBoard on click event by Reset button.
 function resetScoreBoard(element) {
   for (let child of element.children) {
-    console.log(child.children.length);
     for (let i = child.children.length; i > 1; i--) {
-      console.log("inside reset func");
       child.removeChild(child.children[i - 1]);
     }
   }

@@ -6,85 +6,112 @@
   margin: 0;
   padding: 0;
 }
+
 body {
+  background: linear-gradient(
+    90deg,
+    hsla(179, 83%, 64%, 1) 0%,
+    hsla(338, 75%, 64%, 1) 50%,
+    hsla(14, 92%, 86%, 1) 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0 auto;
-  background-color: #03071e;
+  background-color: white;
   width: 100%;
-  max-width: 1000px;
-  min-width: 300px;
   height: 100vh;
-  display: flex;
-  flex-direction: row;
+  /* max-width: 1200px; */
+  /* display: flex; */
+  flex-wrap: nowrap;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
   font-family: "Rubik Vinyl", cursive, sans-serif;
-  /* background-color: linear-gradient(90deg, #03045e,#a2d2ff,#caf0f8); */
   position: relative;
-  /* background-color: 4FE6F1,5EDBEE,6CD1EB,7BC6E8,89BBE4,98B1E1,A6A6DE */
-  /* font-family:Arial, Helvetica, sans-serif; */
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 main {
-  width: 100%;
-  height: 80vh;
   margin: 0 auto;
+  /* margin-top: 2rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
+  align-self: center;
+  justify-content: space-evenly;
+  min-width: 300px;
 }
 h1 {
   font-size: 3rem;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 10px;
+  margin-bottom: 5px;
   text-align: center;
   font-family: "IBM Plex Sans", sans-serif;
   color: white;
-  text-shadow: 2px 5px rgba(248, 87, 166, 0.8);
+  text-shadow: 2px 5px rgba(248, 87, 166, 0.8), 0.1rem 0.1rem 0.9rem white;
 }
 #player-info {
-  width: 550px;
-  height: 10rem;
+  width: 80%;
+  height: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-top: 0;
+  margin-top: 5px;
   padding-top: 0;
   /* border: 1px solid white; */
 }
-#input-fields {
-  display: flex;
-}
+
 #player-info label {
+  width: auto;
+  height: auto;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1rem;
   letter-spacing: 1px;
-  color: #bbd0ff;
-  margin: 2px;
+  text-shadow: 0.1rem 0.1rem 0.5rem #f4edef;
+  /* color: #bbd0ff; */
+  color: #061938;
+  margin-right: 2px;
+  margin-left: 2px;
   display: inline-block;
 }
-#player-info input,
-#round-select {
-  width: 180px;
-  height: 2rem;
+#input-fields {
+  display: flex;
+  align-items: center;
+}
+input {
+  display: inline-block;
+  width: 100px;
+  margin-bottom: 4px;
+  text-align: left;
+  text-transform: capitalize;
+  height: 1.5rem;
   border-radius: 20px;
   text-indent: 8px;
-  text-transform: capitalize;
-  box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.4);
+  background-color: #ebd5df;
+  box-shadow: 0.3rem 0.3rem 0.3rem #f857a6;
   border: transparent;
 }
 #round-select {
-  width: 80px;
-  text-align: center;
+  width: 50px;
+  height: 1.5rem;
+  border-radius: 20px;
+  text-indent: 8px;
+  background-color: #ebd5df;
+  box-shadow: 0.3rem 0.3rem 0.3rem #f857a6;
+  border: transparent;
 }
+
 #show-msg {
+  margin-top: 5px;
+  background-color: white;
+  border-radius: 20px;
   height: 2rem;
-  padding-top: 10px;
+  /* padding-top: 5px; */
+  padding: 5px;
   font-size: 20px;
-  width: fit-content;
+  width: auto;
   letter-spacing: 2px;
   color: green;
   font-family: "Roboto", sans-serif;
@@ -95,8 +122,11 @@ h1 {
 #start-btn {
   display: block;
   height: 2rem;
-  width: 300px;
+  width: fit-content;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin: 0 auto;
+  margin-bottom: 10px;
   text-align: center;
   margin-top: 1rem;
   font-family: "IBM Plex Sans", sans-serif;
@@ -106,7 +136,7 @@ h1 {
   font-size: 1.2rem;
   border: none;
   border-radius: 10px;
-  box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.5rem white;
   transition: transform 0.4s;
 }
 #start-btn:hover {
@@ -121,9 +151,7 @@ h1 {
   height: 300px;
   padding: 0;
   border-radius: 10%;
-  position: relative;
-
-  /* opacity: 80%; */
+  /* position: relative; */
 }
 
 .row {
@@ -134,24 +162,51 @@ h1 {
 
 .square {
   /* background-color: rgba(255, 12, 73, 0.749); */
-  border: 2px solid #caf0f8;
+  border: 2px solid hsl(320, 23%, 95%);
   border-radius: 10%;
   width: calc(100% / 3);
   height: 100px;
   font-family: "Acme", sans-serif;
   font-size: 2rem;
   text-align: center;
-  color: #9bf6ff;
-  text-shadow: 0.25rem 0.25rem 6px grey;
+  color: #f4edef;
+  text-shadow: 0.1rem 0.1rem 0.3rem rgb(12, 12, 241),
+    0.2rem 0.3rem 6px rgba(58, 189, 241, 0.996);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0.5rem 0.5rem 0.5rem rgba(248, 87, 166, 0.6);
+  box-shadow: 0.2rem 0.4rem 0.5rem rgba(232, 212, 222, 0.9);
 }
 .square:hover {
   transform: scale(1.1);
   transition: transform 0.4s;
 }
+#banner {
+  width: 400px;
+  height: 60px;
+  padding-top: 10px;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    hsla(17, 95%, 50%, 1) 0%,
+    hsla(42, 94%, 57%, 1) 100%
+  );
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 350px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 30px;
+  border-top: none;
+  border-right: none;
+  box-shadow: 1rem 1rem 0.9rem white;
+  color: white;
+  font-family: "IBM Plex Sans", sans-serif;
+  display: none;
+}
+
 #reset {
   width: 100px;
   margin: 5px;
@@ -165,7 +220,8 @@ h1 {
   color: white;
   border: none;
   border-radius: 10px;
-  box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.5rem white;
+  /* box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.5); */
   margin-bottom: 20px;
   transition: transform 0.4s;
 }
@@ -186,7 +242,8 @@ h1 {
   color: white;
   border: none;
   border-radius: 10px;
-  box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.5);
+  box-shadow: 0.1rem 0.1rem 0.5rem white;
+  /* box-shadow: 0.3rem 0.3rem 0.3rem rgba(248, 87, 166, 0.5); */
   margin-bottom: 20px;
   transition: transform 0.4s;
 }
@@ -195,17 +252,21 @@ h1 {
   transition: transform 0.4s;
 }
 #score-board {
-  /* background-color: #03071e; */
-  color: aqua;
-  width: 100%;
-  height: 20vh;
-  /* border: 1px solid black; */
+  margin-top: 10px;
+  /* color: rgb(43, 44, 50); */
+  color: white;
+  text-shadow: 0.75rem 0.75rem 0.8rem black;
+  width: 80vw;
+  height: fit-content;
   font-family: "IBM Plex Sans", sans-serif;
-  position: absolute;
-  bottom: 20px;
+  position: relative;
+  bottom: 0;
+  letter-spacing: 2px;
+  /* display: none; */
 }
 table {
   width: 100%;
+  font-size: 20px;
 }
 td {
   width: calc(500px);
@@ -216,56 +277,47 @@ th {
   height: 40px;
 }
 
-/*@media only screen and (max-width: 600px) {
-  body {
-    transform: scale(0.75);
-    transition: transform 0.4s;
-    margin-top: 0;
-    padding-top: 0;
-  }
-}
-@media only screen and (max-width: 480px) {
-  body {
-    width: 100vw;
-    height: 100vw;
-  }
-  main {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* body {
     transform: scale(0.8);
-    transition: transform 0.4s;
-    margin-right: 2rem;
-    margin-left: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+  } */
+  main {
+    transform: scale(0.75);
   }
-  h1 {
-    margin: 0;
-    margin-bottom: 15px;
-  }
-  #player-info label {
-    display: block;
-  }
-  #player-info input {
-    width: 180px;
-    height: 2rem;
-    border-radius: 20px;
-    text-indent: 8px;
-    text-transform: capitalize;
-    margin-top: 10px;
-    margin-left: 5px;
-  }
-
-  #show-msg {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
+  #score-board {
+    width: 100vw;
   }
 }
-@media only screen and (max-width: 380px) {
-  main {
-    transform: scale(0.7);
-    transition: transform 0.4s;
-    margin-right: 2rem;
-    margin-left: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+@media only screen and (max-height: 700px) {
+  body {
+    height: 100%;
   }
-} */
+  main {
+    transform: scale(0.75);
+    height: fit-content;
+  }
+  .game-board {
+    transform: scale(0.75);
+  }
+  #score-board {
+    width: 100vw;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  ...;
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  ...;
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  ...;
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  ...;
+}

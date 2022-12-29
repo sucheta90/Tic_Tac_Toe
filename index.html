@@ -34,12 +34,10 @@
               </select>
             </label>
           </div>
-          <button id="start-btn">Start Game</button>
+          <button id="start-btn">START GAME</button>
         </form>
-        <div id="show-msg">
-          <div id="banner"></div>
-        </div>
       </div>
+      <div id="show-msg"></div>
       <!-- End of Player Information / input-->
 
       <!--Game Board-->
@@ -65,27 +63,28 @@
         <button id="reset">Reset</button>
       </div>
 
+      <!--Score Board-->
+      <div id="score-board">
+        <table>
+          <thead>
+            <h2>SCORE BOARD</h2>
+          </thead>
+          <tbody id="score-table">
+            <tr id="round-header">
+              <th>Rounds</th>
+            </tr>
+            <tr id="player1-score">
+              <th id="p1-header">Player 1</th>
+            </tr>
+            <tr id="player2-score">
+              <th id="p2-header">Player 2</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <!--End of Game Board-->
     </main>
-    <!--Score Board-->
-    <div id="score-board">
-      <table>
-        <thead>
-          <h2>SCORE BOARD</h2>
-        </thead>
-        <tbody id="score-table">
-          <tr id="round-header">
-            <th>Rounds</th>
-          </tr>
-          <tr id="player1-score">
-            <th id="p1-header">Player 1</th>
-          </tr>
-          <tr id="player2-score">
-            <th id="p2-header">Player 2</th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div id="banner"></div>
 
     <script src="script.js"></script>
   </body>
