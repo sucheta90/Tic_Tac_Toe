@@ -71,7 +71,7 @@ function validation() {
       player2 = p2.value;
       header1.innerText = player1;
       header2.innerText = player2;
-      showMsg.style.color = "green";
+      showMsg.style.color = "#008000";
       showMsg.innerText = `${player1}'s turn`;
       startBtn.setAttribute("disabled", "");
       p1.setAttribute("disabled", "");
@@ -251,6 +251,7 @@ resetBtn.addEventListener("click", (e) => {
   runner = "";
   roundTracker = [];
   showMsg.innerText = "";
+  showMsg.style.backgroundColor = "transparent";
   document.getElementById("game-board").style.pointerEvents = "none";
   document.getElementById("play-again").setAttribute("disabled", "");
   document.getElementById("play-again").style.opacity = ".6";

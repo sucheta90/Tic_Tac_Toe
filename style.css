@@ -105,15 +105,16 @@ input {
 
 #show-msg {
   margin-top: 5px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 20px;
   height: 2rem;
   /* padding-top: 5px; */
   padding: 5px;
-  font-size: 20px;
+  font-size: 22px;
   width: auto;
   letter-spacing: 2px;
-  color: green;
+  color: #70e000;
+  text-shadow: 0.1rem 0.1rem 0.5rem white;
   font-family: "Roboto", sans-serif;
   text-transform: capitalize;
   text-align: center;
@@ -171,7 +172,7 @@ input {
   text-align: center;
   color: #f4edef;
   text-shadow: 0.1rem 0.1rem 0.3rem rgb(12, 12, 241),
-    0.2rem 0.3rem 6px rgba(58, 189, 241, 0.996);
+    0.2rem 0.3rem 6px rgba(58, 189, 241, 0.996), 0.75rem 0.75rem 0.8rem black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,9 +183,11 @@ input {
   transition: transform 0.4s;
 }
 #banner {
-  width: 400px;
-  height: 60px;
-  padding-top: 10px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  letter-spacing: 2px;
   z-index: 2;
   background: linear-gradient(
     90deg,
@@ -193,15 +196,17 @@ input {
   );
   color: white;
   text-align: center;
+  text-transform: capitalize;
   position: absolute;
   top: 350px;
+  /* left: 20vw; */
   border-top-left-radius: 30px;
   border-top-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 30px;
   border-top: none;
   border-right: none;
-  box-shadow: 1rem 1rem 0.9rem white;
+  box-shadow: 0.75rem 0.75rem 0.75rem white;
   color: white;
   font-family: "IBM Plex Sans", sans-serif;
   display: none;
@@ -254,10 +259,12 @@ input {
 #score-board {
   margin-top: 10px;
   /* color: rgb(43, 44, 50); */
-  color: white;
-  text-shadow: 0.75rem 0.75rem 0.8rem black;
+  /* color: white; */
+  color: #061938;
+  text-shadow: 0.1rem 0.1rem 0.9rem white;
   width: 80vw;
   height: fit-content;
+  padding: 5px;
   font-family: "IBM Plex Sans", sans-serif;
   position: relative;
   bottom: 0;
@@ -268,6 +275,10 @@ table {
   width: 100%;
   font-size: 20px;
 }
+#score-board h2 {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+}
 td {
   width: calc(500px);
   border: 1px solid #caf0f8;
@@ -275,6 +286,7 @@ td {
 th {
   width: 100px;
   height: 40px;
+  text-transform: capitalize;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -284,24 +296,31 @@ th {
   } */
   main {
     transform: scale(0.75);
+    transition: transform 0.4s;
   }
   #score-board {
     width: 100vw;
+    transition: width 0.4s;
   }
 }
 @media only screen and (max-height: 700px) {
   body {
     height: 100%;
+    transition: height 0.4s;
   }
   main {
     transform: scale(0.75);
+    transition: transform 0.4s;
     height: fit-content;
+    transition: height 0.4s;
   }
   .game-board {
     transform: scale(0.75);
+    transition: transform 0.4s;
   }
   #score-board {
     width: 100vw;
+    transition: width 0.4s;
   }
 }
 
