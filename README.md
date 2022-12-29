@@ -4,14 +4,17 @@ Our childhood would have been incomplete without a game like this - 'Tic_Tac_Toe
 
 ### About the Game
 
-- When the page loads, the **Game Board** and **Play Again** button will be disabled.
-- To start the game, players must enter their names and click **Start** button. A validation process takes place to check
+- When the page loads, the **_Game Board_** and **_Play Again_** button will be disabled.
+- To start the game, players must enter their names and click **_Start_** button. A validation process takes place to check
 - 1. Names are filled.
 - 2. Players have different names.
+- Players can choose between 3 and 9 rounds from the drop-down menu. The default value is set to 3 if no selection made.
+- Depending on the rounds selected a score board is created dynamically on, showing the number if rounds and player names. This will track the progress of the game by indicating the winner of each round. Each time there is a winner , a **_Tick_** mark appears in players row corrsponding to the current round played.
+- The Score Board is set to display:none and only appears on the screen after the rounds have been selected and the game starts.
 - Only on successful validation of the player's name, the Game board will be enabled.
 - Each time the game starts, Player 1 plays first until there is a winner. After which, whoever wins the current round, gets to play first on the next round of the game.
 - Play Again resets the Game Board only. So the same players can continue to play the game.
-- To reset the game _Reset_ button should be used. This clears the game board and clears player's name. Reset disables _Play Again_ and the game board. Allows players to start a new game.
+- To reset the game _Reset_ button should be used. This clears the game board, clears player's name and resets the **_Score Board_** . Reset disables _Play Again_ and the game board. Allows players to start a new game.
 
 ### How I solved the problem
 
@@ -89,6 +92,4 @@ playAgain.addEventListener('click', (e)=>{
 
 ### Future implementation as planned
 
-- Players can select upto 10 rounds from a drop down menu.
-- A Scoreboard to track rounds and winners of each round.
 - A drop down menu to toggle between Single and Double player game.
