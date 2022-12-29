@@ -269,7 +269,7 @@ input {
   position: relative;
   bottom: 0;
   letter-spacing: 2px;
-  /* display: none; */
+  display: none;
 }
 table {
   width: 100%;
